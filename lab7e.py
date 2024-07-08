@@ -14,6 +14,14 @@ class Time:
         self.minute = minute
         self.second = second
 
+    def __str__(self):
+        '''return a string representation for the object self'''
+        return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+
+    def __repr__(self):
+        '''return a string representation for the object self'''
+        return f'{self.hour:02d}.{self.minute:02d}.{self.second:02d}'
+
     def format_time(self):
         """Return time object (t) as a formatted string"""
         return f'{self.hour:02}:{self.minute:02}:{self.second:02}'
@@ -47,10 +55,10 @@ class Time:
             return False
         return True
 
-def sec_to_time(seconds):
-    '''convert a given number of seconds to a time object in 
+    def sec_to_time(seconds):
+        '''convert a given number of seconds to a time object in 
         hour, minute, second format'''
-    time = Time()
-    minutes, time.second = divmod(seconds, 60)
-    time.hour, time.minute = divmod(minutes, 60)
-    return time
+        time = Time()
+        minutes, time.second = divmod(seconds, 60)
+        time.hour, time.minute = divmod(minutes, 60)
+        return time
